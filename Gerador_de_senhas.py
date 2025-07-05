@@ -4,31 +4,33 @@ import random
 
 def funcao():
     try:
-        qt = int(size.get()) #get as a int, the valor of the entry SIZE
+        if 0 < int(size.get()) < 31:
+            qt = int(size.get()) #get as a int, the valor of the entry SIZE
 
+            abc = "aAbcCdDeEfghHijklmnNpPqrsStTuvwxyz123456789#$%*@"
+            senha = ""
 
-        sim = "aAbcCdDeEfghHijklmnNpPqrsStTuvwxyz123456789#$%*@"
-        senha = ""
+            for _ in range(qt):
+                senha += random.choice(abc)
 
-        for _ in range(qt):
-            senha += random.choice(sim)
-
-        senha_label.config(text = senha, fg = "Black", font = "Roboto 10 bold")
+            senha_label.config(text = senha, fg = "Black", font = "Roboto 10 bold")
+        else:
+            senha_label.config(text="Insira um número positivo\nmenor que 31", fg="#b55609", font="Roboto 10 bold")
 
     except:
         senha_label.config(text="Error", fg = "red3")
 
 
-
+#################################################################
 
 jan = Tk()
 
 jan.title("Gerador de senhas")
-jan.geometry("250x150")
+jan.geometry("250x160")
 
 
 #Entrys
-size = Entry(jan, cursor = "hand2")
+size = Entry(jan) #size of the password
 size.grid(row = 1, column = 0, pady = 10)
 
 
@@ -37,12 +39,13 @@ titl = Label(jan, text = "Gerador De Senhas", padx=10, pady=5, font = "Rubix 19"
 titl.grid(row = 0, column = 0)
 
 
+senha_label = Label(jan, text = "") #Label da senha
+senha_label.grid(row = 3, column = 0, pady = 10)
 
-senha_label = Label(jan, text = "", pady= 8) #Label da senha
-senha_label.grid(row = 3, column = 0)
+
 
 #Buttons
-gerar = Button(jan, text = "Gerar", padx=10,
+gerar = Button(jan, text = "Gerar", padx=10, cursor = "hand2", bg = "#32a858",
                command= funcao) #Botão de gerar a senha
 gerar.grid(row = 2, column = 0)
 
