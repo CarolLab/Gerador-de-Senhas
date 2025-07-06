@@ -1,4 +1,4 @@
-from tkinter import *
+import tkinter as tk
 import random
 
 
@@ -23,29 +23,29 @@ def funcao():
 
 #################################################################
 
-jan = Tk()
+jan = tk.Tk()
 
 jan.title("Gerador de senhas")
 jan.geometry("250x160")
 
 
 #Entrys
-size = Entry(jan) #size of the password
+size = tk.Entry(jan) #size of the password
 size.grid(row = 1, column = 0, pady = 10)
 
 
 #Labels
-titl = Label(jan, text = "Gerador De Senhas", padx=10, pady=5, font = "Rubix 19")
+titl = tk.Label(jan, text = "Gerador De Senhas", padx=10, pady=5, font = "Rubix 19")
 titl.grid(row = 0, column = 0)
 
 
-senha_label = Label(jan, text = "") #Label da senha
+senha_label = tk.Label(jan, text = "") #Label da senha
 senha_label.grid(row = 3, column = 0, pady = 10)
 
 
 
 #Buttons
-gerar = Button(jan, text = "Gerar", padx=10, cursor = "hand2", bg = "#32a858",
+gerar = tk.Button(jan, text = "Gerar", padx=10, cursor = "hand2", bg = "#32a858",
                command= funcao) #Botão de gerar a senha
 gerar.grid(row = 2, column = 0)
 
