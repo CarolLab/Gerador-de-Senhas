@@ -2,7 +2,7 @@ import tkinter as tk
 import random
 
 
-def funcao():
+def gerar_senha():
     try:
         if 0 < int(size.get()) < 31:
             qt = int(size.get()) #get as a int, the valor of the entry SIZE
@@ -27,6 +27,7 @@ jan = tk.Tk()
 
 jan.title("Gerador de senhas")
 jan.geometry("250x160")
+jan.minsize(245,150)
 
 
 #Entrys
@@ -36,17 +37,16 @@ size.grid(row = 1, column = 0, pady = 10)
 
 #Labels
 titl = tk.Label(jan, text = "Gerador De Senhas", padx=10, pady=5, font = "Rubix 19")
-titl.grid(row = 0, column = 0)
-
-
 senha_label = tk.Label(jan, text = "") #Label da senha
-senha_label.grid(row = 3, column = 0, pady = 10)
 
+
+titl.grid(row = 0, column = 0)
+senha_label.grid(row = 3, column = 0, pady = 10)
 
 
 #Buttons
 gerar = tk.Button(jan, text = "Gerar", padx=10, cursor = "hand2", bg = "#32a858",
-               command= funcao) #Botão de gerar a senha
+               command= gerar_senha) #Botão de gerar a senha
 gerar.grid(row = 2, column = 0)
 
 jan.mainloop()
