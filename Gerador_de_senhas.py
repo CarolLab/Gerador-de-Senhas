@@ -29,6 +29,12 @@ jan.title("Gerador de senhas")
 jan.geometry("250x160")
 jan.minsize(245,150)
 
+#Configuração das colunas e linhas
+#Colunas
+jan.columnconfigure(0, weight = 1)
+
+#Linhas
+jan.rowconfigure([0,1,2], weight = 1)
 
 #Entrys
 size = tk.Entry(jan) #size of the password
