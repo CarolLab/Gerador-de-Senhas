@@ -28,7 +28,7 @@ jan = tk.Tk()
 
 jan.title("Gerador de senhas")
 jan.geometry("270x180")
-jan.minsize(245,150)
+jan.minsize(270,180)
 
 #Configuração das colunas e linhas
 #Colunas
@@ -38,10 +38,10 @@ jan.columnconfigure(0, weight = 1)
 jan.rowconfigure([0,1,2], weight = 1)
 
 #Entrys
-#Label informativa
-tk.Label(jan, text = "Insira o tamanho da senha").grid(row = 1, column = 0, pady = 10)
+
+tk.Label(jan, text = "Insira o tamanho da senha", font = ("Garamond", 10, "bold")).grid(row = 1, column = 0, pady = 10)#Label informativo
 size = tk.Entry(jan) #size of the password
-size.grid(row = 2, column = 0, pady = 10)
+size.grid(row = 2, column = 0, pady = 10, ipady = 3)
 
 
 #Labels
