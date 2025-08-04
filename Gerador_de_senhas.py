@@ -1,25 +1,26 @@
 import tkinter as tk
 import random
 
-
-def gerar_senha():
+def mostrar_senha():
     try:
-        if 0 < int(pass_size.get()) < 31:
-            qt = int(pass_size.get()) #get as a int, the valor of the entry SIZE
-
-            abc = "aAbcCdDeEfghHijklmnNpPqrsStTuvwxyz123456789#$%*@"
-            senha = ""
-
-            for _ in range(qt):
-                senha += random.choice(abc)
-
-            senha_label.config(text = senha, fg = "Black", font = "Roboto 10 bold")
+        tamanho = int(tamanho_entry.get())#Obtêm o tamnho pretendido
+        if 0 < tamanho < 31:
+            senha = gerar_senha(tamanho)#Senha gerada
+            label_resultado.config(text = senha, fg = "Black", font = "Roboto 10 bold")
         else:
-            senha_label.config(text="Insira um número positivo\nmenor que 31", fg="#b55609", font="Roboto 10 bold")
-
+            label_resultado.config(text = f"Insira um número positivo\nmenor que 31", fg = "#b55609")
     except:
-        senha_label.config(text="Error", fg = "red3")
+        label_resultado.config(text = "Error", fg = "red3")
 
+
+def gerar_senha(tamanho: int) -> str:#Gera a senha
+        caracteres = "aAbcCdDeEfghHijklmnNpPqrsStTuvwxyz123456789#$%*@"
+        senha = ""
+
+        for _ in range(tamanho):
+            senha += random.choice(caracteres)
+
+        return senha
 
 
 #################################################################
@@ -57,22 +58,22 @@ frame_2.grid(pady = 10,row = 1, column = 0, sticky = "nswe")
 #Entrys - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 tk.Label(frame_2, text = "Insira um tamanho para a senha",
          font = ("Garamond", 10, "bold")).grid(row = 1, column = 0, pady = 10)#Label informativo
-pass_size = tk.Entry(frame_2) #Tamanho a senha
+tamanho_entry = tk.Entry(frame_2) #Tamanho a senha
 
-pass_size.grid(row = 2, column = 0, pady = 8, ipady = 3)
+tamanho_entry.grid(row = 2, column = 0, pady = 8, ipady = 3)
 
 
 #Labels- - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 titulo = tk.Label(frame_1, text = "Gerador De Senhas",font = ("Rubix", 16, "bold"),
                   bg = "DarkOliveGreen3")#Título
-senha_label = tk.Label(frame_2, text = "") #Label da senha
+label_resultado = tk.Label(frame_2, text = "", font = "Roboto 10 bold") #Label da senha
 
 titulo.grid(pady = 8,row = 0, column = 0,sticky = "nswe")
-senha_label.grid(row = 4, column = 0, pady = 10)
+label_resultado.grid(row = 4, column = 0, pady = 10)
 
 #Buttons- - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 butao_gerar = tk.Button(frame_2, text = "Gerar", padx=10, cursor = "hand2", bg = "#32a858",
-               command= gerar_senha) #Botão de gerar a senha
+               command= mostrar_senha) #Botão de gerar a senha
 butao_gerar.grid(pady = 8,row = 3, column = 0)
 
 jan.mainloop()
