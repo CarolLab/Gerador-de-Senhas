@@ -46,7 +46,7 @@ jan = tk.Tk()
 
 jan.title("Gerador de senhas")
 jan.geometry("300x300")
-#jan.minsize(355,255)
+jan.minsize(300,300)
 jan.config(bg = "#CED7E0")
 
 #Configuração de linhas e colunas da janela
