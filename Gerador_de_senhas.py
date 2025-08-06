@@ -57,8 +57,8 @@ jan.columnconfigure(0, weight = 1)
 
 
 #Frames- - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-frame_1 = tk.Frame(jan, bg = "#32a858")
-frame_2 = tk.Frame(jan)
+frame_1 = tk.Frame(jan, bg = "#EAF4FB")
+frame_2 = tk.Frame(jan, bg = "#f2f5f7")
 
 #Configuração dos frames
 #Frame1
@@ -75,7 +75,7 @@ frame_2.grid(row = 1, column = 0, sticky = "nswe", pady = (2,0))
 
 #Título - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 titulo = tk.Label(frame_1, text = "Gerador De Senhas",font = ("Helvetica", 16, "bold"),
-                  bg = "#32a858",anchor = "center")
+                  bg = "#EAF4FB",fg = "#1C2C4C",anchor = "center")
 
 titulo.grid(row = 0, column = 0,sticky = "nswe", pady = 4)
 
@@ -114,7 +114,7 @@ label_resultado = tk.Text(frame_2,font = "Roboto 10 bold", width = 32, height = 
 label_resultado.grid(row = 6, column = 0, pady = 10)
 
 #Buttons- - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-butao_gerar = tk.Button(frame_2, text = "Gerar", padx=25, cursor = "hand2", bg = "#32a858",
-               command= mostrar_senha) #Botão de gerar a senha
-butao_gerar.grid(row = 4, column = 0,pady = 15, sticky = "w", padx = (100,0))
+butao_gerar = tk.Button(frame_2, text = "Gerar", padx=25, cursor = "hand2", bg = "#2fad58",bd = 3,
+               relief = "raised",command= mostrar_senha) #Botão de gerar a senha
+butao_gerar.grid(row = 4, column = 0,pady = 15, padx = (95,0),ipadx = 4, sticky = "w")
 jan.mainloop()
