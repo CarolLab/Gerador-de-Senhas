@@ -67,6 +67,7 @@ frame_1.columnconfigure(0, weight = 1)
 
 #Frame2
 frame_2.columnconfigure(0, weight = 1)
+frame_2.rowconfigure([0,1,2,3,4,5,6], weight = 1)
 
 #Exibição dos frames
 frame_1.grid(row = 0, column = 0, sticky = "nswe")
@@ -115,6 +116,6 @@ label_resultado.grid(row = 6, column = 0, pady = 10)
 
 #Buttons- - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 butao_gerar = tk.Button(frame_2, text = "Gerar", padx=25, cursor = "hand2", bg = "#2fad58",bd = 3,
-               relief = "raised",command= mostrar_senha) #Botão de gerar a senha
+               relief = "raised",overrelief="solid",command= mostrar_senha) #Botão de gerar a senha
 butao_gerar.grid(row = 4, column = 0,pady = 15, padx = (95,0),ipadx = 4, sticky = "w")
 jan.mainloop()
