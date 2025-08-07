@@ -81,7 +81,7 @@ titulo = tk.Label(frame_1, text = "Gerador De Senhas",font = ("Helvetica", 16, "
 titulo.grid(row = 0, column = 0,sticky = "nswe", pady = 4)
 
 #Entrys - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-tk.Label(frame_2, text = "Insira a quantidade de caracteres",
+tk.Label(frame_2, text = "Insira a quantidade de caracteres",bg = "#f2f5f7",
          font = ("Garamond", 10, "bold")).grid(row = 0, column = 0, pady = (8,0),padx = (5,0), sticky = "w")#Label informativo
 tamanho_entry = tk.Entry(frame_2, width = 10) #Tamanho a senha
 
@@ -96,10 +96,10 @@ var_digitos = tk.BooleanVar()#Variável de controlo da checkbutton dos digitos
 var_simbolos = tk.BooleanVar()#Variável de controlo da checkbutton dos símbolos
 
 
-check_maiusculas = tk.Checkbutton(frame_2, variable = var_maiusculas, text = "Letras maiúsculas")
-check_minusculas = tk.Checkbutton(frame_2, variable = var_minusculas, text = "Letas minúsculas")
-check_digitos = tk.Checkbutton(frame_2, variable = var_digitos, text = "Digitos")
-check_simbolos = tk.Checkbutton(frame_2, variable = var_simbolos, text = "Símbolos:@# ...")
+check_maiusculas = tk.Checkbutton(frame_2, variable = var_maiusculas, text = "Letras maiúsculas", bg = "#f2f5f7")
+check_minusculas = tk.Checkbutton(frame_2, variable = var_minusculas, text = "Letas minúsculas",bg = "#f2f5f7")
+check_digitos = tk.Checkbutton(frame_2, variable = var_digitos, text = "Digitos",bg = "#f2f5f7")
+check_simbolos = tk.Checkbutton(frame_2, variable = var_simbolos, text = "Símbolos:@# ...",bg = "#f2f5f7")
 
 
 check_maiusculas.grid(row = 2, column = 0, sticky = "w", padx = (6,0), pady = 10)
