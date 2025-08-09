@@ -3,38 +3,38 @@ import random
 
 
 def mostrar_senha():
-    label_resultado.delete(0.0, "end")
+    label_erro.config(text = "")
 
     try:
         tamanho = int(tamanho_entry.get())#Obtêm o tamnho pretendido
         if 0 < tamanho < 26:
-                senha = gerar_senha(tamanho)#Senha gerada
+            senha = gerar_senha(tamanho)#Senha gerada
 
-                label_resultado.config(fg = "Black", font = "Roboto 10 bold")
-                label_resultado.insert("end", senha)
+            label_resultado.config(fg = "Black", font = "Roboto 10 bold")
+            label_resultado.insert("end", senha)
 
         else:#Se não for positivo menor que 31
-                label_resultado.config(fg = "#b55609",font = ("Roboto", 10, "bold") )
-                label_resultado.insert("end","Digite um número de 0 a 25")
+            label_erro.config(text ="Digite um número de 0 a 25",fg = "#b55609", font = ("Roboto", 10, "bold"))
 
     except:
-        label_resultado.config(fg = "red3")
-        label_resultado.insert("end", "Erro")
+        label_erro.config(text = "Erro", fg = "red3")
 
 
 def gerar_senha(tamanho: int) -> str:#Gera a senha
     caracteres = ""
 
-    if var_maiusculas.get():
+    #Verificar as opções selecionadas
+
+    if var_maiusculas.get():#Se o valor de var_maiusculas for True
         caracteres +="ABCDEFGHIJKLMNOPKRSTUVWXYZ"
-    if var_minusculas.get():#Se dentro da string for True
+    if var_minusculas.get():
         caracteres += "abcdefghijklmnopqrstuvwxyz"
     if var_digitos.get():
         caracteres += "0123456789"
     if var_simbolos.get():
         caracteres += "@#£&$"
 
-
+    #Sortea os caracteres e junta-os na variável senha
     senha = "".join(random.choice(caracteres) for _ in range(tamanho))
 
     return senha
@@ -109,11 +109,12 @@ check_simbolos.grid(row = 3, column = 0, padx = (127,0))
 
 check_minusculas.select()
 
-#Labels- - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 label_resultado = tk.Text(frame_2,font = "Roboto 10 bold", width = 32, height = 1) #Label da senha
+label_erro = tk.Label(frame_2, text = "")
 
 label_resultado.grid(row = 6, column = 0, pady = 10)
-
+label_erro.grid(row = 5, column =0)
 #Buttons- - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 butao_gerar = tk.Button(frame_2, text = "Gerar", padx=25, cursor = "hand2", bg = "#2fad58",bd = 3,
                relief = "raised",overrelief="solid",command= mostrar_senha) #Botão de gerar a senha
