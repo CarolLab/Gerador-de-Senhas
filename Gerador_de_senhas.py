@@ -4,6 +4,7 @@ import random
 
 
 def mostrar_senha():
+    label_resultado.delete("0.0", "end")#Limpar o campo de texto oa gerar uma nova senha
     label_erro.config(text = "")
 
     try:
