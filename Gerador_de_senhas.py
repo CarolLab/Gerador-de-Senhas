@@ -1,4 +1,5 @@
 import tkinter as tk
+import string
 import random
 
 
@@ -26,16 +27,16 @@ def gerar_senha(tamanho: int) -> str:#Gera a senha
     #Verificar as opções selecionadas
 
     if var_maiusculas.get():#Se o valor de var_maiusculas for True
-        caracteres +="ABCDEFGHIJKLMNOPKRSTUVWXYZ"
+        caracteres += string.ascii_uppercase
     if var_minusculas.get():
-        caracteres += "abcdefghijklmnopqrstuvwxyz"
+        caracteres += string.ascii_lowercase
     if var_digitos.get():
-        caracteres += "0123456789"
+        caracteres += string.digits
     if var_simbolos.get():
         caracteres += "@#£&$"
 
     #Sortea os caracteres e junta-os na variável senha
-    senha = "".join(random.choice(caracteres) for _ in range(tamanho))
+    senha = "".join([random.choice(caracteres) for _ in range(tamanho)])
 
     return senha
 
