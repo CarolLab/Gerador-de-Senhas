@@ -85,7 +85,7 @@ titulo.grid(row = 0, column = 0,sticky = "nswe", pady = 4)
 #Entrys - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 tk.Label(frame_2, text = "Insira a quantidade de caracteres",bg = "#f2f5f7",
          font = ("Garamond", 10, "bold")).grid(row = 0, column = 0, pady = (8,0),padx = (5,0), sticky = "w")#Label informativo
-tamanho_entry = tk.Entry(frame_2, width = 10) #Tamanho a senha
+tamanho_entry = tk.Entry(frame_2, width = 10, relief = "groove", bd = 2) #Tamanho a senha
 
 tamanho_entry.grid(row = 1, column = 0,padx = (7,0), pady = 5, ipady = 3, sticky = "w")
 
@@ -106,13 +106,14 @@ check_simbolos = tk.Checkbutton(frame_2, variable = var_simbolos, text = "Símbo
 
 check_maiusculas.grid(row = 2, column = 0, sticky = "w", padx = (6,0), pady = 10)
 check_minusculas.grid(row = 3, column = 0, sticky = "w", padx = (6,0))
-check_digitos.grid(row = 2, column = 0,padx = (83,0))
-check_simbolos.grid(row = 3, column = 0, padx = (127,0))
+check_digitos.grid(row = 2, column = 0,sticky = "e",padx = (0,49))
+check_simbolos.grid(row = 3, column = 0, sticky = "e",padx = (0,5))
 
 check_minusculas.select()
 
 
-label_resultado = tk.Text(frame_2,font = "Roboto 10 bold", width = 32, height = 1) #Label da senha
+label_resultado = tk.Text(frame_2,font = "Roboto 10 bold", width = 32, height = 1, #relief = "ridge", bd = 3,
+                          relief = "groove", bd = 2) #Label da senha
 label_erro = tk.Label(frame_2, text = "")
 
 label_resultado.grid(row = 6, column = 0, pady = 10)
@@ -120,5 +121,5 @@ label_erro.grid(row = 5, column =0)
 #Buttons- - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 butao_gerar = tk.Button(frame_2, text = "Gerar", padx=25, cursor = "hand2", bg = "#2fad58",bd = 3,
                relief = "raised",overrelief="solid",command= mostrar_senha) #Botão de gerar a senha
-butao_gerar.grid(row = 4, column = 0,pady = 15, padx = (95,0),ipadx = 4, sticky = "w")
+butao_gerar.grid(row = 4, column = 0,pady = 15, padx = (100,0),ipadx = 4, sticky = "w")
 jan.mainloop()
