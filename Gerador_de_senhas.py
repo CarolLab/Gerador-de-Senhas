@@ -12,7 +12,6 @@ def mostrar_senha():
         if 0 < tamanho < 26:
             senha = gerar_senha(tamanho)#Senha gerada
 
-            label_resultado.config(fg = "Black", font = "Roboto 10 bold")
             label_resultado.config(fg = "Black", font = "Roboto 10 bold",
                                    text = senha)
 
@@ -20,7 +19,7 @@ def mostrar_senha():
             label_erro.config(text ="Digite um número de 0 a 25",fg = "#b55609", font = ("Roboto", 10, "bold"))
 
     except ValueError:
-         label_erro.config(text = "Erro", fg = "red3")
+        label_erro.config(text = "Erro", fg = "red3")
 
 
 def gerar_senha(tamanho: int) -> str:#Gera a senha
@@ -113,7 +112,7 @@ check_simbolos.grid(row = 3, column = 0, sticky = "e",padx = (0,5))
 check_minusculas.select()
 
 
-label_resultado = tk.Label(frame_2,font = "Roboto 10 bold", width = 32, height = 1, #relief = "ridge", bd = 3,
+label_resultado = tk.Label(frame_2,font = "Roboto 10 bold", width = 32, height = 1,bg = "White",
                           relief = "groove", bd = 2) #Label da senha
 label_erro = tk.Label(frame_2, text = "")
 
