@@ -4,7 +4,7 @@ import random
 
 
 def mostrar_senha():
-    label_resultado.delete("0.0", "end")#Limpar o campo de texto oa gerar uma nova senha
+    label_resultado.config(text = "")#Limpar o campo de texto oa gerar uma nova senha
     label_erro.config(text = "")
 
     try:
@@ -13,13 +13,14 @@ def mostrar_senha():
             senha = gerar_senha(tamanho)#Senha gerada
 
             label_resultado.config(fg = "Black", font = "Roboto 10 bold")
-            label_resultado.insert("end", senha)
+            label_resultado.config(fg = "Black", font = "Roboto 10 bold",
+                                   text = senha)
 
         else:#Se não for positivo menor que 31
             label_erro.config(text ="Digite um número de 0 a 25",fg = "#b55609", font = ("Roboto", 10, "bold"))
 
-    except:
-        label_erro.config(text = "Erro", fg = "red3")
+    except ValueError:
+         label_erro.config(text = "Erro", fg = "red3")
 
 
 def gerar_senha(tamanho: int) -> str:#Gera a senha
@@ -112,7 +113,7 @@ check_simbolos.grid(row = 3, column = 0, sticky = "e",padx = (0,5))
 check_minusculas.select()
 
 
-label_resultado = tk.Text(frame_2,font = "Roboto 10 bold", width = 32, height = 1, #relief = "ridge", bd = 3,
+label_resultado = tk.Label(frame_2,font = "Roboto 10 bold", width = 32, height = 1, #relief = "ridge", bd = 3,
                           relief = "groove", bd = 2) #Label da senha
 label_erro = tk.Label(frame_2, text = "")
 
