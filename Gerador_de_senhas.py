@@ -21,6 +21,9 @@ def mostrar_senha():
     except ValueError:
         label_erro.config(text = "Erro", fg = "red3")
 
+    except IndexError:
+        label_erro.config(text = "Selecione os caracteres da senha", fg = "red3", font = ("Roboto", 10, "bold"))
+
 
 def gerar_senha(tamanho: int) -> str:#Gera a senha
     caracteres = ""
