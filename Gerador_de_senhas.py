@@ -16,13 +16,13 @@ def mostrar_senha():
                                    text = senha)
 
         else:#Se não for positivo menor que 31
-            label_erro.config(text ="Digite um número de 0 a 25",fg = "#b55609", font = ("Roboto", 10, "bold"))
+            label_erro.config(text ="Digite um número de 0 a 25",fg = "#b55609",font = ("TkDefaultFont",10,"bold"))
 
     except ValueError:
         label_erro.config(text = "Erro", fg = "red3")
 
     except IndexError:
-        label_erro.config(text = "Selecione os caracteres da senha", fg = "red3", font = ("Roboto", 10, "bold"))
+        label_erro.config(text = "Selecione os caracteres da senha", fg = "red3",font = ("TkDefaultFont",10,"bold"))
 
 
 def gerar_senha(tamanho: int) -> str:#Gera a senha
@@ -111,18 +111,17 @@ check_maiusculas.grid(row = 2, column = 0, sticky = "w", padx = (6,0), pady = 10
 check_minusculas.grid(row = 3, column = 0, sticky = "w", padx = (6,0))
 check_digitos.grid(row = 2, column = 0,sticky = "e",padx = (0,49))
 check_simbolos.grid(row = 3, column = 0, sticky = "e",padx = (0,5))
-
 check_minusculas.select()
 
 
 label_resultado = tk.Label(frame_2,font = "Roboto 10 bold", width = 32, height = 1,bg = "White",
                           relief = "groove", bd = 2) #Label da senha
-label_erro = tk.Label(frame_2, text = "")
+label_erro = tk.Label(frame_2, text = "", bg = "#f2f5f7")
 
 label_resultado.grid(row = 6, column = 0, pady = 10)
 label_erro.grid(row = 5, column =0)
 #Buttons- - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-butao_gerar = tk.Button(frame_2, text = "Gerar", padx=25, cursor = "hand2", bg = "#2fad58",bd = 3,
+botao_gerar = tk.Button(frame_2, text = "Gerar", padx=25, cursor = "hand2", bg = "#2fad58",bd = 3,
                relief = "raised",overrelief="solid",command= mostrar_senha) #Botão de gerar a senha
-butao_gerar.grid(row = 4, column = 0,pady = 15, padx = (100,0),ipadx = 4, sticky = "w")
+botao_gerar.grid(row = 4, column = 0,pady = (0,15), padx = (100,0),ipadx = 4, sticky = "w")
 jan.mainloop()
