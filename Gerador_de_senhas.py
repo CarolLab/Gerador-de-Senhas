@@ -60,10 +60,13 @@ jan.rowconfigure(1, weight = 25)
 
 jan.columnconfigure(0, weight = 1)
 
+#Fontes- - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+bg_frame2 = "#f2f5f7"
+
 
 #Frames- - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 frame_1 = tk.Frame(jan, bg = "#EAF4FB")
-frame_2 = tk.Frame(jan, bg = "#f2f5f7")
+frame_2 = tk.Frame(jan, bg = bg_frame2)
 
 #Configuração dos frames
 #Frame1
@@ -86,7 +89,7 @@ titulo = tk.Label(frame_1, text = "Gerador De Senhas",font = ("Helvetica", 16, "
 titulo.grid(row = 0, column = 0,sticky = "nswe", pady = 4)
 
 #Entrys - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-tk.Label(frame_2, text = "Insira a quantidade de caracteres",bg = "#f2f5f7",
+tk.Label(frame_2, text = "Insira a quantidade de caracteres",bg =  bg_frame2,
          font = ("Garamond", 10, "bold")).grid(row = 0, column = 0, pady = (8,0),padx = (5,0), sticky = "w")#Label informativo
 tamanho_entry = tk.Entry(frame_2, width = 10, relief = "groove", bd = 2) #Tamanho a senha
 
@@ -94,17 +97,21 @@ tamanho_entry.grid(row = 1, column = 0,padx = (7,0), pady = 5, ipady = 3, sticky
 
 
 #Checkbuttons -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#Variaveis de controlo
+#Variáveis de controlo
 var_maiusculas = tk.BooleanVar()#Variável de controlo da checkbutton de letras maiúsculas
 var_minusculas = tk.BooleanVar()#Variável de controlo da checkbutton de letras minúsculas
 var_digitos = tk.BooleanVar()#Variável de controlo da checkbutton dos digitos
 var_simbolos = tk.BooleanVar()#Variável de controlo da checkbutton dos símbolos
 
 
-check_maiusculas = tk.Checkbutton(frame_2, variable = var_maiusculas, text = "Letras maiúsculas", bg = "#f2f5f7")
-check_minusculas = tk.Checkbutton(frame_2, variable = var_minusculas, text = "Letas minúsculas",bg = "#f2f5f7")
-check_digitos = tk.Checkbutton(frame_2, variable = var_digitos, text = "Digitos",bg = "#f2f5f7")
-check_simbolos = tk.Checkbutton(frame_2, variable = var_simbolos, text = "Símbolos:@# ...",bg = "#f2f5f7")
+check_maiusculas = tk.Checkbutton(frame_2, variable = var_maiusculas, text = "Letras maiúsculas", bg = bg_frame2,
+                                  activebackground = bg_frame2)
+check_minusculas = tk.Checkbutton(frame_2, variable = var_minusculas, text = "Letas minúsculas",bg = bg_frame2,
+                                  activebackground = bg_frame2)
+check_digitos = tk.Checkbutton(frame_2, variable = var_digitos, text = "Dígitos",bg = bg_frame2,
+                               activebackground = bg_frame2)
+check_simbolos = tk.Checkbutton(frame_2, variable = var_simbolos, text = "Símbolos:@# ...",bg = bg_frame2,
+                                activebackground= bg_frame2)
 
 
 check_maiusculas.grid(row = 2, column = 0, sticky = "w", padx = (6,0), pady = 10)
@@ -116,7 +123,7 @@ check_minusculas.select()
 
 label_resultado = tk.Label(frame_2,font = "Roboto 10 bold", width = 32, height = 1,bg = "White",
                           relief = "groove", bd = 2) #Label da senha
-label_erro = tk.Label(frame_2, text = "", bg = "#f2f5f7")
+label_erro = tk.Label(frame_2, text = "", bg = bg_frame2)
 
 label_resultado.grid(row = 6, column = 0, pady = 10)
 label_erro.grid(row = 5, column =0)
