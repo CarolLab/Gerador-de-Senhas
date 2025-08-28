@@ -127,6 +127,11 @@ label_erro = tk.Label(frame_2, text = "", bg = bg_frame2)
 
 label_resultado.grid(row = 6, column = 0, pady = 10)
 label_erro.grid(row = 5, column =0)
+
+#Scale - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+scale = tk.Scale(frame_2,from_ = 1, to = 25, orient = "horizontal", state = "disabled", showvalue = False)
+scale.grid(row = 1, column = 0,pady = (0,2), padx = (60,0))
+
 #Buttons- - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 botao_gerar = tk.Button(frame_2, text = "Gerar", padx=25, cursor = "hand2", bg = "#2fad58",bd = 3,
                relief = "raised",overrelief="solid",command= mostrar_senha) #Botão de gerar a senha
