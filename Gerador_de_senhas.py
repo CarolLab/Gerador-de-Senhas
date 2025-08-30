@@ -16,10 +16,10 @@ def mostrar_senha():
                                    text = senha)
 
         else:#Se não for positivo menor que 31
-            label_erro.config(text ="Digite um número de 0 a 25",fg = "#b55609",font = ("TkDefaultFont",10,"bold"))
+            label_erro.config(text ="Digite um número de 1 a 25",fg = "#b55609",font = ("TkDefaultFont",10,"bold"))
 
     except ValueError:
-        label_erro.config(text = "Erro", fg = "red3")
+        label_erro.config(text = "Digite um número de 1 a 25", fg = "red3")
 
     except IndexError:
         label_erro.config(text = "Selecione os caracteres da senha", fg = "red3",font = ("TkDefaultFont",10,"bold"))
