@@ -88,22 +88,25 @@ titulo = tk.Label(frame_1, text = "Gerador De Senhas",font = ("Helvetica", 16, "
 
 titulo.grid(row = 0, column = 0,sticky = "nswe", pady = 4)
 
-#Entrys - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-tk.Label(frame_2, text = "Insira a quantidade de caracteres",bg =  bg_frame2,
-         font = ("Garamond", 10, "bold")).grid(row = 0, column = 0, pady = (8,0),padx = (5,0), sticky = "w")#Label informativo
-tamanho_entry = tk.Entry(frame_2, width = 10, relief = "groove", bd = 2) #Tamanho a senha
 
-tamanho_entry.grid(row = 1, column = 0,padx = (7,0), pady = 5, ipady = 3, sticky = "w")
-
-
-#Checkbuttons -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #Variáveis de controlo
 var_maiusculas = tk.BooleanVar()#Variável de controlo da checkbutton de letras maiúsculas
 var_minusculas = tk.BooleanVar()#Variável de controlo da checkbutton de letras minúsculas
 var_digitos = tk.BooleanVar()#Variável de controlo da checkbutton dos digitos
 var_simbolos = tk.BooleanVar()#Variável de controlo da checkbutton dos símbolos
 
+var_entry_scale = tk.IntVar()
 
+
+#Entrys - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+tk.Label(frame_2, text = "Insira a quantidade de caracteres",bg =  bg_frame2,
+         font = ("Garamond", 10, "bold")).grid(row = 0, column = 0, pady = (8,0),padx = (5,0), sticky = "w")#Label informativo
+tamanho_entry = tk.Entry(frame_2, width = 10, relief = "groove", bd = 2, textvariable = var_entry_scale) #Tamanho a senha
+
+tamanho_entry.grid(row = 1, column = 0,padx = (7,0), pady = 5, ipady = 3, sticky = "w")
+
+
+#Checkbuttons -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 check_maiusculas = tk.Checkbutton(frame_2, variable = var_maiusculas, text = "Letras maiúsculas", bg = bg_frame2,
                                   activebackground = bg_frame2)
 check_minusculas = tk.Checkbutton(frame_2, variable = var_minusculas, text = "Letas minúsculas",bg = bg_frame2,
@@ -129,8 +132,8 @@ label_resultado.grid(row = 6, column = 0, pady = 10)
 label_erro.grid(row = 5, column =0)
 
 #Scale - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-scale = tk.Scale(frame_2,from_ = 1, to = 25, orient = "horizontal", state = "disabled", showvalue = False)
-scale.grid(row = 1, column = 0,pady = (0,2), padx = (60,0))
+scale = tk.Scale(frame_2,from_ = 1, to = 25, orient = "horizontal", troughcolor = "#CED7E0",variable = var_entry_scale)
+scale.grid(row = 1, column = 0,pady = (0,20), padx = (60,0))
 
 #Buttons- - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 botao_gerar = tk.Button(frame_2, text = "Gerar", padx=25, cursor = "hand2", bg = "#2fad58",bd = 3,
