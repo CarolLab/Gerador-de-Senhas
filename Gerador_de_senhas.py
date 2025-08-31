@@ -132,11 +132,13 @@ label_resultado.grid(row = 6, column = 0, pady = 10)
 label_erro.grid(row = 5, column =0)
 
 #Scale - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-scale = tk.Scale(frame_2,from_ = 1, to = 25, orient = "horizontal", troughcolor = "#CED7E0",variable = var_entry_scale)
-scale.grid(row = 1, column = 0,pady = (0,20), padx = (60,0))
+scale = tk.Scale(frame_2,from_ = 1, to = 25, orient = "horizontal", length= 120,
+                 troughcolor = "#CED7E0",variable = var_entry_scale)
+scale.grid(row = 1, column = 0,pady = (0,13), padx = (60,0))
 
 #Buttons- - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 botao_gerar = tk.Button(frame_2, text = "Gerar", padx=25, cursor = "hand2", bg = "#2fad58",bd = 3,
-               relief = "raised",overrelief="solid",command= mostrar_senha) #Botão de gerar a senha
-botao_gerar.grid(row = 4, column = 0,pady = (0,15), padx = (100,0),ipadx = 4, sticky = "w")
+                        activebackground = "lightgreen",relief = "raised",overrelief="solid",
+                        command= mostrar_senha) #Botão de gerar a senha
+botao_gerar.grid(row = 4, column = 0,pady = (4,10), padx = (100,0),ipadx = 4, sticky = "w")
 jan.mainloop()
