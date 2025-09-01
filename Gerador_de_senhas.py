@@ -19,7 +19,7 @@ def mostrar_senha():
             label_erro.config(text ="Digite um número de 1 a 25",fg = "#b55609",font = ("TkDefaultFont",10,"bold"))
 
     except ValueError:
-        label_erro.config(text = "Digite um número de 1 a 25", fg = "red3")
+        label_erro.config(text = "Digite um número de 1 a 25", fg = "red3",font = ("TkDefaultFont",10,"bold"))
 
     except IndexError:
         label_erro.config(text = "Selecione os caracteres da senha", fg = "red3",font = ("TkDefaultFont",10,"bold"))
@@ -128,7 +128,7 @@ label_resultado = tk.Label(frame_2,font = "Roboto 10 bold", width = 32, height =
                           relief = "groove", bd = 2) #Label da senha
 label_erro = tk.Label(frame_2, text = "", bg = bg_frame2)
 
-label_resultado.grid(row = 6, column = 0, pady = 10)
+label_resultado.grid(row = 6, column = 0, pady = (10,6))
 label_erro.grid(row = 5, column =0)
 
 #Scale - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
