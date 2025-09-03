@@ -8,7 +8,7 @@ def mostrar_senha():
     label_erro.config(text = "")
 
     try:
-        tamanho = int(tamanho_entry.get())#Obtêm o tamnho pretendido
+        tamanho = int(var_spinbox_scale.get())#Obtêm o tamnho pretendido
         if 0 < tamanho < 26:
             senha = gerar_senha(tamanho)#Senha gerada
 
@@ -95,15 +95,16 @@ var_minusculas = tk.BooleanVar()#Variável de controlo da checkbutton de letras 
 var_digitos = tk.BooleanVar()#Variável de controlo da checkbutton dos digitos
 var_simbolos = tk.BooleanVar()#Variável de controlo da checkbutton dos símbolos
 
-var_entry_scale = tk.IntVar()
+var_spinbox_scale = tk.IntVar()
 
 
 #Entrys - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 tk.Label(frame_2, text = "Insira a quantidade de caracteres",bg =  bg_frame2,
          font = ("Garamond", 10, "bold")).grid(row = 0, column = 0, pady = (8,0),padx = (5,0), sticky = "w")#Label informativo
-tamanho_entry = tk.Entry(frame_2, width = 10, relief = "groove", bd = 2, textvariable = var_entry_scale) #Tamanho a senha
+tamanho_spinbox = tk.Spinbox(frame_2, from_ = 1, to = 25, wrap = True,
+                             width = 10, relief = "groove", bd = 2, textvariable = var_spinbox_scale) #Tamanho a senha
 
-tamanho_entry.grid(row = 1, column = 0,padx = (7,0), pady = 5, ipady = 3, sticky = "w")
+tamanho_spinbox.grid(row = 1, column = 0,padx = (7,0), pady = 5, ipady = 3, sticky = "w")
 
 
 #Checkbuttons -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -133,7 +134,7 @@ label_erro.grid(row = 5, column =0)
 
 #Scale - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 scale = tk.Scale(frame_2,from_ = 1, to = 25, orient = "horizontal", length= 120,
-                 troughcolor = "#CED7E0",variable = var_entry_scale)
+                 troughcolor = "#CED7E0",variable = var_spinbox_scale)
 scale.grid(row = 1, column = 0,pady = (0,13), padx = (60,0))
 
 #Buttons- - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
