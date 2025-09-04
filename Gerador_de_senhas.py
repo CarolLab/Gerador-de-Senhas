@@ -125,7 +125,7 @@ check_simbolos.grid(row = 3, column = 0, sticky = "e",padx = (0,5))
 check_minusculas.select()
 
 
-label_resultado = tk.Label(frame_2,font = "Roboto 10 bold", width = 32, height = 1,bg = "White",
+label_resultado = tk.Label(frame_2,font = "Roboto 10 bold", width = 32, height = 1,
                           relief = "groove", bd = 2) #Label da senha
 label_erro = tk.Label(frame_2, text = "", bg = bg_frame2)
 
@@ -141,5 +141,5 @@ scale.grid(row = 1, column = 0,pady = (0,13), padx = (60,0))
 botao_gerar = tk.Button(frame_2, text = "Gerar", padx=25, cursor = "hand2", bg = "#2fad58",bd = 3,
                         activebackground = "lightgreen",relief = "raised",overrelief="solid",
                         command= mostrar_senha) #Botão de gerar a senha
-botao_gerar.grid(row = 4, column = 0,pady = (4,10), padx = (100,0),ipadx = 4, sticky = "w")
+botao_gerar.grid(row = 4, column = 0,pady = (4,12), padx = (100,0),ipadx = 4, sticky = "w")
 jan.mainloop()
