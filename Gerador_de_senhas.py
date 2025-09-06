@@ -9,20 +9,20 @@ def mostrar_senha():
 
     try:
         tamanho = int(var_spinbox_scale.get())#Obtêm o tamnho pretendido
-        if 0 < tamanho < 26:
+        if 2 < tamanho < 26:
             senha = gerar_senha(tamanho)#Senha gerada
 
             label_resultado.config(fg = "Black", font = "Roboto 10 bold",
                                    text = senha)
 
         else:#Se não for positivo menor que 31
-            label_erro.config(text ="Digite um número de 1 a 25",fg = "#b55609",font = ("TkDefaultFont",10,"bold"))
+            label_erro.config(text ="Digite um número de 3 a 25",fg = "#b55609")
 
     except ValueError:
-        label_erro.config(text = "Digite um número de 1 a 25", fg = "red3",font = ("TkDefaultFont",10,"bold"))
+        label_erro.config(text = "Digite um número de 3 a 25", fg = "red3")
 
     except IndexError:
-        label_erro.config(text = "Selecione os caracteres da senha", fg = "red3",font = ("TkDefaultFont",10,"bold"))
+        label_erro.config(text = "Selecione os caracteres da senha", fg = "red3")
 
 
 def gerar_senha(tamanho: int) -> str:#Gera a senha
@@ -101,7 +101,7 @@ var_spinbox_scale = tk.IntVar()
 #Entrys - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 tk.Label(frame_2, text = "Insira a quantidade de caracteres",bg =  bg_frame2,
          font = ("Garamond", 10, "bold")).grid(row = 0, column = 0, pady = (8,0),padx = (5,0), sticky = "w")#Label informativo
-tamanho_spinbox = tk.Spinbox(frame_2, from_ = 1, to = 25, wrap = True,
+tamanho_spinbox = tk.Spinbox(frame_2, from_ = 3, to = 25, wrap = True,
                              width = 10, relief = "groove", bd = 2, textvariable = var_spinbox_scale) #Tamanho a senha
 
 tamanho_spinbox.grid(row = 1, column = 0,padx = (7,0), pady = 5, ipady = 3, sticky = "w")
@@ -125,15 +125,15 @@ check_simbolos.grid(row = 3, column = 0, sticky = "e",padx = (0,5))
 check_minusculas.select()
 
 
-label_resultado = tk.Label(frame_2,font = "Roboto 10 bold", width = 32, height = 1,
+label_resultado = tk.Label(frame_2,font = "Roboto 10 bold", width = 30, height = 1,
                           relief = "groove", bd = 2) #Label da senha
-label_erro = tk.Label(frame_2, text = "", bg = bg_frame2)
+label_erro = tk.Label(frame_2, text = "", bg = bg_frame2,font = ("TkDefaultFont",10,"bold"))
 
 label_resultado.grid(row = 6, column = 0, pady = (10,6))
 label_erro.grid(row = 5, column =0)
 
 #Scale - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-scale = tk.Scale(frame_2,from_ = 1, to = 25, orient = "horizontal", length= 120,
+scale = tk.Scale(frame_2,from_ = 3, to = 25, orient = "horizontal", length= 120,
                  troughcolor = "#CED7E0",variable = var_spinbox_scale)
 scale.grid(row = 1, column = 0,pady = (0,13), padx = (60,0))
 
