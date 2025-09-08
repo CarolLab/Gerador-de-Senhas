@@ -129,8 +129,8 @@ label_resultado = tk.Label(frame_2,font = "Roboto 10 bold", width = 30, height =
                           relief = "groove", bd = 2) #Label da senha
 label_erro = tk.Label(frame_2, text = "", bg = bg_frame2,font = ("TkDefaultFont",10,"bold"))
 
-label_resultado.grid(row = 6, column = 0, pady = (10,6))
-label_erro.grid(row = 5, column =0)
+label_resultado.grid(row = 5, column = 0, pady = (2,1))
+label_erro.grid(row = 6, column =0, pady = (0,2))
 
 #Scale - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 scale = tk.Scale(frame_2,from_ = 3, to = 25, orient = "horizontal", length= 120,
