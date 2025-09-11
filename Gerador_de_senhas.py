@@ -1,6 +1,10 @@
 import tkinter as tk
 import string
 import random
+import pyperclip as pycp
+
+def copiar(senha):
+    pycp.copy(senha)
 
 
 def mostrar_senha():
@@ -30,14 +34,15 @@ def gerar_senha(tamanho: int) -> str:#Gera a senha
 
     #Verificar as opções selecionadas
 
+    if var_simbolos.get():
+        caracteres += "@#£&$"
+    if var_digitos.get():
+        caracteres += string.digits
     if var_maiusculas.get():#Se o valor de var_maiusculas for True
         caracteres += string.ascii_uppercase
     if var_minusculas.get():
         caracteres += string.ascii_lowercase
-    if var_digitos.get():
-        caracteres += string.digits
-    if var_simbolos.get():
-        caracteres += "@#£&$"
+
 
     #Sortea os caracteres e junta-os na variável senha
     senha = "".join([random.choice(caracteres) for _ in range(tamanho)])
@@ -125,11 +130,11 @@ check_simbolos.grid(row = 3, column = 0, sticky = "e",padx = (0,5))
 check_minusculas.select()
 
 
-label_resultado = tk.Label(frame_2,font = "Roboto 10 bold", width = 30, height = 1,
+label_resultado = tk.Label(frame_2,font = "Roboto 10 bold", width = 23, height = 1,
                           relief = "groove", bd = 2) #Label da senha
 label_erro = tk.Label(frame_2, text = "", bg = bg_frame2,font = ("TkDefaultFont",10,"bold"))
 
-label_resultado.grid(row = 5, column = 0, pady = (2,1))
+label_resultado.grid(row = 5, column = 0, pady = (2,1), padx = (5,0),sticky = "nsw")
 label_erro.grid(row = 6, column =0, pady = (0,2))
 
 #Scale - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -137,9 +142,14 @@ scale = tk.Scale(frame_2,from_ = 3, to = 25, orient = "horizontal", length= 120,
                  troughcolor = "#CED7E0",variable = var_spinbox_scale)
 scale.grid(row = 1, column = 0,pady = (0,13), padx = (60,0))
 
-#Buttons- - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#Botões- - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 botao_gerar = tk.Button(frame_2, text = "Gerar", padx=25, cursor = "hand2", bg = "#2fad58",bd = 3,
                         activebackground = "lightgreen",relief = "raised",overrelief="solid",
                         command= mostrar_senha) #Botão de gerar a senha
+
+botao_copiar = tk.Button(frame_2, text = "Copiar", command = lambda: copiar(label_resultado["text"]))
+
 botao_gerar.grid(row = 4, column = 0,pady = (4,12), padx = (100,0),ipadx = 4, sticky = "w")
+botao_copiar.grid(row = 5, column = 0, padx = (2,20),sticky = "nse")
+
 jan.mainloop()
