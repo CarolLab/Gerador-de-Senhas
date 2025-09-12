@@ -8,7 +8,7 @@ def copiar(senha):
 
 
 def mostrar_senha():
-    label_resultado.config(text = "")#Limpar o campo de texto oa gerar uma nova senha
+    label_senha.config(text = "")#Limpar o campo de texto oa gerar uma nova senha
     label_erro.config(text = "")
 
     try:
@@ -16,8 +16,8 @@ def mostrar_senha():
         if 2 < tamanho < 26:
             senha = gerar_senha(tamanho)#Senha gerada
 
-            label_resultado.config(fg = "Black", font = "Roboto 10 bold",
-                                   text = senha)
+            var_senha.set(senha)
+
 
         else:#Se não for positivo menor que 31
             label_erro.config(text ="Digite um número de 3 a 25",fg = "#b55609")
@@ -101,7 +101,7 @@ var_digitos = tk.BooleanVar()#Variável de controlo da checkbutton dos digitos
 var_simbolos = tk.BooleanVar()#Variável de controlo da checkbutton dos símbolos
 
 var_spinbox_scale = tk.IntVar()
-
+var_senha = tk.StringVar() #Varivel de controlo da senha
 
 #Entrys - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 tk.Label(frame_2, text = "Insira a quantidade de caracteres",bg =  bg_frame2,
@@ -130,11 +130,11 @@ check_simbolos.grid(row = 3, column = 0, sticky = "e",padx = (0,5))
 check_minusculas.select()
 
 
-label_resultado = tk.Label(frame_2,font = "Roboto 10 bold", width = 23, height = 1,
-                          relief = "groove", bd = 2) #Label da senha
+label_senha = tk.Label(frame_2,font = "Roboto 10 bold", width = 23, height = 1,
+                          relief = "groove", bd = 2, textvariable = var_senha) #Label da senha
 label_erro = tk.Label(frame_2, text = "", bg = bg_frame2,font = ("TkDefaultFont",10,"bold"))
 
-label_resultado.grid(row = 5, column = 0, pady = (2,1), padx = (5,0),sticky = "nsw")
+label_senha.grid(row = 5, column = 0, pady = (2,1), padx = (5,0),sticky = "nsw")
 label_erro.grid(row = 6, column =0, pady = (0,2))
 
 #Scale - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -147,7 +147,7 @@ botao_gerar = tk.Button(frame_2, text = "Gerar", padx=25, cursor = "hand2", bg =
                         activebackground = "lightgreen",relief = "raised",overrelief="solid",
                         command= mostrar_senha) #Botão de gerar a senha
 
-botao_copiar = tk.Button(frame_2, text = "Copiar", command = lambda: copiar(label_resultado["text"]))
+botao_copiar = tk.Button(frame_2, text = "Copiar", command = lambda: copiar(var_senha.get()))
 
 botao_gerar.grid(row = 4, column = 0,pady = (4,12), padx = (100,0),ipadx = 4, sticky = "w")
 botao_copiar.grid(row = 5, column = 0, padx = (2,20),sticky = "nse")
