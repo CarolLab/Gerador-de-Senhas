@@ -152,11 +152,12 @@ scale.grid(row = 1, column = 0,pady = (0,13), padx = (60,0))
 
 
 #Botões- - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-botao_gerar = tk.Button(frame_2, text = "Gerar", padx=25, cursor = "hand2", bg = "#2fad58",bd = 3,
+botao_gerar = tk.Button(frame_2, text = "Gerar", padx=25, cursor = "hand2", bg = "#2fad58",bd = 2,
                         activebackground = "lightgreen",relief = "raised",overrelief="solid",
                         command= mostrar_senha) #Botão de gerar a senha
 
-botao_copiar = tk.Button(frame_2, text = "Copiar", command = lambda: copiar(var_senha.get()))
+botao_copiar = tk.Button(frame_2, bg = "#CED7E0",text = "Copiar",width = 10, relief = "groove", bd = 2,
+                         command = lambda: copiar(var_senha.get()))
 
 botao_gerar.grid(row = 4, column = 0,pady = (4,12), padx = (100,0),ipadx = 4, sticky = "w")
 botao_copiar.grid(row = 5, column = 0, padx = (2,20),sticky = "nse")
