@@ -5,6 +5,9 @@ import pyperclip as pycp
 
 def copiar(senha):
     pycp.copy(senha)
+    botao_copiar.config(text = "Copiado!", bg = "lightgreen")
+    jan.after(2000, lambda: botao_copiar.config(text = "Copiar", bg = "#CED7E0"))
+
 
 
 def mostrar_senha():
